@@ -5,7 +5,6 @@ import ball from '/assets/intermediate-composite-basketball.jpg'
 import shirt from '/assets/adults-plain-cotton-tshirt-2-pack-teal.jpg'
 import fourhalf from '/assets/rating-45.png'
 import four from '/assets/rating-40.png'
-
 function Home(){
     const sets=[
         {
@@ -33,26 +32,17 @@ function Home(){
             aside:"56"
         }
     ]
-
     return(
         <div className="font-robot">
-            <Header/>
-            <div className="flex flex-wrap gap-[0px] justify-center md:gap-[10px]">
-                {sets.map((item)=>{
-                    return(
-                        <Box 
-                            key={item.id} 
-                            image={item.img} 
-                            rating={item.rating} 
-                            aside={item.aside} 
-                            text={item.para} 
-                            cost={item.money} 
-                        />
-                    )
-                })}
-            </div>
-        </div>
+    <Header/>
+    <div className="flex flex-wrap gap-[0px]">
+    {sets.map((item)=>{
+        return(
+        <Box image={item.img} rating={item.rating} aside={item.aside} text={item.para} cost={item.money}/>
+        )
+    })}
+    </div>
+    </div>
     )
 }
-
 export default Home;
