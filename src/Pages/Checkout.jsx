@@ -3,6 +3,7 @@ import Heading from '../components/Heading'
 import socks from '/assets/athletic-cotton-socks-6-pairs.jpg'
 import ball from '/assets/intermediate-composite-basketball.jpg'
 import Summary from '../components/Summary'
+
 function Check(){
     const checking=[
         {
@@ -22,19 +23,31 @@ function Check(){
             image:ball
         }
     ]
+
     return(
-        <div>
+        <div className="md:px-[10px]">
             <Heading quant="3"/>
-            <h1 className="text-5xl font-bold w-[42%] mt-[140px] flex justify-center items-center mb-[50px]">Review your order</h1>
-            <div className="flex justify-start items-start">
-                <div>
-            {checking.map((item)=>{
-                return(
-                <Boxing key={item.id} date={item.date} desc={item.desc} currency={item.money} quantity={item.quantity} image={item.image}/>
-           )})}
-           </div>
-           <Summary quant="3" items="$42.75" sh="$4.99" tt="$47.74" et="$4.77" ot="$52.51" />
+            <h1 className="text-5xl font-bold w-[42%] mt-[140px] flex justify-center items-center mb-[50px] 
+                           md:w-full md:text-2xl md:mt-[80px] md:mb-[30px]">Review your order</h1>
+            <div className="flex justify-start items-start md:flex-col md:gap-[20px]">
+                <div className="md:w-full">
+                    {checking.map((item)=>{
+                        return(
+                            <Boxing 
+                                key={item.id} 
+                                date={item.date} 
+                                desc={item.desc} 
+                                currency={item.money} 
+                                quantity={item.quantity} 
+                                image={item.image}
+                            />
+                        )
+                    })}
+                </div>
+                <Summary quant="3" items="$42.75" sh="$4.99" tt="$47.74" et="$4.77" ot="$52.51" />
+            </div>
         </div>
-    </div>)
+    )
 }
+
 export default Check;
